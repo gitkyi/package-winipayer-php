@@ -22,13 +22,13 @@ composer require jarstechnologies/winipayer
 
     //** Simple creation of an invoice **
 
-    $winipayer = new Winipayer();
+    $winipayer = new Winipayer("test", "qgK1LspWt15KXzx273", "a20301ed-ad42-42c2-9ecd-da88b2bced", "783a8aeb5a9f4664b8c8d41595c94f");
 
     echo $winipayer->createInvoice(1000, 'Description de l\article');
 
     //** Complex creation of an invoice **
 
-    $winipayer = new Winipayer();
+    $winipayer = new Winipayer("test", "qgK1LspWt15KXzx273", "a20301ed-ad42-42c2-9ecd-da28b2bced", "783a8aeb5a9f4664c198d41595c94f");
 
     echo $winipayer->setEndpoint('link_your_end_point')
     ->setItems(
@@ -68,7 +68,7 @@ composer require jarstechnologies/winipayer
     ->setCancelUrl('https://tester.winipayer.com/cancel')
     ->setReturnUrl('https://tester.winipayer.com/success')
     ->setCallbackUrl('https://tester.winipayer.com/callback')
-    ->createInvoice($amount, $description, $currency);
+    ->createInvoice(1000, "Juste un test");
 
 ```
 
