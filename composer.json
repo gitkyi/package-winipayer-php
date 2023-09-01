@@ -1,15 +1,15 @@
 {
-    "name": "package/winipayer",
+    "name": "jarstechnologies/winipayer",
     "description": "WiniPayer your online payment API, easy integration on mobile and web applications",
     "type": "library",
     "autoload": {
         "psr-4": {
-            "Package\\Winipayer\\": "src/"
+            "Jarstechnologies\\Winipayer\\": "src/"
         }
     },
     "authors": [
         {
-            "name": "JARS TECHNOLOGIES",
+            "name": "Jarstechnologies",
             "email": "info@jarstechnologies.com"
         }
     ],

@@ -6,5 +6,5 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Package\\Winipayer\\' => array($baseDir . '/src'),
+    'Jarstechnologies\\Winipayer\\' => array($baseDir . '/src'),
 );
