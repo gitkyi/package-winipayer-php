@@ -13,7 +13,7 @@ You can install the package via composer:
 }
 
 ```bash
-composer require package/winipayer
+composer require jarstechnologies/winipayer
 ```
 
 ## Usage
@@ -24,7 +24,7 @@ composer require package/winipayer
 
     $winipayer = new Winipayer();
 
-    echo $winipayer->createInvoice($amount, $description, $currency);
+    echo $winipayer->createInvoice(1000, 'Description de l\article');
 
     //** Complex creation of an invoice **
 
@@ -65,9 +65,9 @@ composer require package/winipayer
            'order_uuid' => Str::uuid()->__toString(),
         ]
     )
-    ->setCancelUrl('https://tester.winipayer.com')
+    ->setCancelUrl('https://tester.winipayer.com/cancel')
     ->setReturnUrl('https://tester.winipayer.com/success')
-    ->setCallbackUrl('https://tester.winipayer.com/ipn')
+    ->setCallbackUrl('https://tester.winipayer.com/callback')
     ->createInvoice($amount, $description, $currency);
 
 ```

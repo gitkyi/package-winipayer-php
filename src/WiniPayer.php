@@ -283,7 +283,7 @@ class Winipayer
      * @param string $callback_url
      * @return array
      */
-    public function createInvoice(float $amount, string $description, string $currency = 'xof', string $cancel_url = '', string $return_url = '', string $callback_url = '', string $wpsecure): array
+    public function createInvoice(float $amount, string $description, string $cancel_url = '', string $return_url = '', string $callback_url = '', string $currency = 'xof', string $wpsecure = 'false'): array
     {
 
         $params = [
