@@ -6,7 +6,6 @@
  */
 /*
 Plugin Name: WiniPayer
-Plugin URI: http://wordpress.org/plugins/winipayer/
 Description: WiniPayer your online payment API, easy integration on mobile and web applications.
 Author: Jars Technologies
 Version: 1.0.0
