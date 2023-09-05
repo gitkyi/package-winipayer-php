@@ -14,7 +14,7 @@ namespace winipayer;
 
  */
 
-namespace winipayer;
+namespace WiniPayer;
 
 class Client
 {
@@ -102,7 +102,7 @@ class Client
      * Transaction Security
      * @var bool
      */
-    private string $_wpsecure = false;
+    private string $_wpsecure = '';
 
     /**
      * Callback URL
