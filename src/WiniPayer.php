@@ -10,7 +10,7 @@ Description: WiniPayer your online payment API, easy integration on mobile and w
 Author: Jars Technologies
 Version: 1.0.0
 Author URI: https://www.jarstechnologies.com/
-namespace Package\Winipayer;
+namespace winipayer/winipayerphpsdk;
 
  */
 class WiniPayer
