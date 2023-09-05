@@ -363,20 +363,13 @@ class Client
             throw new \Exception('Winipayer : detailInvoice => Invalid invoice uuid.');
         }
 
-        $response = $this->detailInvoice($uuid);
-
-        if (!isset($response['success']) || $response['success'] !== true) {
-            return false;
-        }
-
-        $invoice = $response['results'];
+        $invoice = $this->detailInvoice($uuid);
 
         $id = $invoice['uuid'] ?? '';
         $hash = $invoice['hash'] ?? '';
         $env = $invoice['env'] ?? '';
         $state = $invoice['state'] ?? '';
         $total = $invoice['amount'] ?? 0;
-
         if (
             $id !== $uuid ||
             hash('sha256', $this->_private_key) !== $hash ||
