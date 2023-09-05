@@ -17,7 +17,7 @@ class WiniPayer
 {
 
     /**
-     * Winipayer API URL
+     * API EndPoint
      * @var string
      */
     private string $_endpoint = 'https://api.winipayer.com';
@@ -29,14 +29,14 @@ class WiniPayer
     private string $_version = 'v1';
 
     /**
-     * // Environment (prod or test)
+     * Environment (prod or test)
      * @var string
      */
-    private string $_env;
+    private string $_env = 'test';
 
 
     /**
-     * Application key
+     * Apply key
      * @var string
      */
     private string $_apply_key;
@@ -97,9 +97,9 @@ class WiniPayer
 
     /**
      * Transaction Security
-     * @var string
+     * @var bool
      */
-    private string $_wpsecure = 'false';
+    private string $_wpsecure = false;
 
     /**
      * Callback URL
@@ -115,23 +115,23 @@ class WiniPayer
      * @param string $token_key
      * @param string $private_key
      */
-    public function __construct(string $env = 'test', string $apply_key, string $token_key, string $private_key)
+    public function __construct(string $apply_key, string $token_key, string $private_key, string $env = 'test')
     {
-        $this->_env = (in_array($env, ['prod', 'test'])) ? $env : 'test';
         $this->_apply_key = $apply_key;
         $this->_token_key = $token_key;
         $this->_private_key = $private_key;
+        $this->_env = (in_array($env, ['prod', 'test'])) ? $env : 'test';
     }
 
     /**
      * Méthode pour Setter l'URL de l'API
      *
      * @param string $url
-     * @return Winipayer
+     * @return WiniPayer
      */
-    public function setEndpoint(string $url): Winipayer
+    public function setEndpoint(string $url): WiniPayer
     {
-        if (!filter_var($url, FILTER_VALIDATE_URL)) {
+        if (!$this->_isLink($url)) {
             throw new \Exception('Winipayer : setEndpoint => Invalid endpoint URL.');
         }
         $this->_endpoint = $url;
@@ -142,11 +142,11 @@ class WiniPayer
      * Méthode pour Setter l'URL d'annulation
      *
      * @param string $url
-     * @return Winipayer
+     * @return WiniPayer
      */
-    public function setCancelUrl(string $url): Winipayer
+    public function setCancelUrl(string $url): WiniPayer
     {
-        if (!filter_var($url, FILTER_VALIDATE_URL)) {
+        if (!$this->_isLink($url)) {
             throw new \Exception('Winipayer : setCancelUrl => Invalid cancel URL.');
         }
         $this->_cancel_url = $url;
@@ -157,11 +157,11 @@ class WiniPayer
      * Méthode pour Setter l'URL de retour
      *
      * @param string $enpoint New enpoint url
-     * @return Winipayer
+     * @return WiniPayer
      */
-    public function setReturnUrl(string $url): Winipayer
+    public function setReturnUrl(string $url): WiniPayer
     {
-        if (!filter_var($url, FILTER_VALIDATE_URL)) {
+        if (!$this->_isLink($url)) {
             throw new \Exception('Winipayer : setReturnUrl => Invalid return URL.');
         }
         $this->_return_url = $url;
@@ -172,11 +172,11 @@ class WiniPayer
      * Méthode pour Setter l'URL de rappel
      *
      * @param string $enpoint
-     * @return Winipayer
+     * @return WiniPayer
      */
-    public function setCallbackUrl(string $url): Winipayer
+    public function setCallbackUrl(string $url): WiniPayer
     {
-        if (!filter_var($url, FILTER_VALIDATE_URL)) {
+        if (!$this->_isLink($url)) {
             throw new \Exception('Winipayer : setCallbackUrl => Invalid callback URL.');
         }
         $this->_callback_url = $url;
@@ -187,9 +187,9 @@ class WiniPayer
      * Méthode pour Setter les opérateurs(canaux) de la transaction
      *
      * @param array $channel
-     * @return Winipayer
+     * @return WiniPayer
      */
-    public function setChannel(array $channel): Winipayer
+    public function setChannel(array $channel): WiniPayer
     {
         $this->_channel = $channel;
         return $this;
@@ -199,10 +199,10 @@ class WiniPayer
     /**
      * Méthode pour Setter la sécurité de la transaction
      * 
-     * @param string $wpsecure
-     * @return Winipayer
+     * @param bool $wpsecure
+     * @return WiniPayer
      */
-    public function setWpsecure(string $wpsecure): Winipayer
+    public function setWpsecure(bool $wpsecure): WiniPayer
     {
         $this->_wpsecure = $wpsecure;
         return $this;
@@ -212,11 +212,11 @@ class WiniPayer
      * Méthode pour Setter le propriétaire de la transaction
      *
      * @param string $uuid
-     * @return Winipayer
+     * @return WiniPayer
      */
-    public function setCustomerOwner(string $uuid): Winipayer
+    public function setCustomerOwner(string $uuid): WiniPayer
     {
-        if (!$this->_uuid($uuid)) {
+        if (!$this->_isUuid($uuid)) {
             throw new \Exception('Winipayer : setCustomerOwner => Invalid customer owner uuid.');
         }
         $this->_customer_owner = $uuid;
@@ -227,9 +227,9 @@ class WiniPayer
      * Méthode pour Setter des données personnalisées
      *
      * @param array $data
-     * @return Winipayer
+     * @return WiniPayer
      */
-    public function setCustomData(array $data): Winipayer
+    public function setCustomData(array $data): WiniPayer
     {
         $this->_custom_data = $data;
         return $this;
@@ -239,9 +239,9 @@ class WiniPayer
      * Méthode pour Setter les éléments que constitue la facture
      *
      * @param array $items
-     * @return Winipayer
+     * @return WiniPayer
      */
-    public function setItems(array $items): Winipayer
+    public function setItems(array $items): WiniPayer
     {
 
         foreach ($items as $key => $value) {
@@ -328,7 +328,7 @@ class WiniPayer
     public function detailInvoice(string $uuid): array
     {
 
-        if (!$this->_uuid($uuid)) {
+        if (!$this->_isUuid($uuid)) {
             throw new \Exception('Winipayer : detailInvoice => Invalid invoice uuid.');
         }
 
@@ -356,7 +356,7 @@ class WiniPayer
     public function valideInvoice(string $uuid, float $amount): bool
     {
 
-        if (!$this->_uuid($uuid)) {
+        if (!$this->_isUuid($uuid)) {
             throw new \Exception('Winipayer : detailInvoice => Invalid invoice uuid.');
         }
 
@@ -437,9 +437,22 @@ class WiniPayer
      * @param string $uuid
      * @return boolean
      */
-    private function _uuid(string $uuid): bool
+    private function _isUuid(string $uuid): bool
     {
         $pattern = '/^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i';
         return preg_match($pattern, $uuid) === 1;
+    }
+
+    /**
+     * Verify is link
+     * @param string $link
+     * @return bool
+     */
+    private function _isLink(string $link): bool
+    {
+        if (filter_var($link, FILTER_VALIDATE_URL)) {
+            return true;
+        }
+        return false;
     }
 }
