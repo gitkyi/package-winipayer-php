@@ -423,7 +423,7 @@ class WiniPayer
 
         if ($response === false) {
             $error = curl_error($curl);
-            throw new \Exception('OrangeSms :  ' . $error);
+            throw new \Exception('WiniPayer :  ' . $error);
         }
 
         curl_close($curl);
