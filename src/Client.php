@@ -431,8 +431,21 @@ class Client
 
         curl_close($curl);
 
-        return json_decode($response, true);
+        $response = json_decode($response, true) ?? [];
+
+        if (!isset($response['success']) || $response['success'] == false) {
+            $errors = $response['errors'] ?? [];
+            $key = $errors['key'] ?? 'undefined';
+            $msg = $errors['msg'] ?? 'undefined';
+            throw new \Exception('Error Winipayer:' . $key . ' => ' . $msg);
+        } elseif (isset($response['success']) && $response['success'] == true) {
+            return $response['results'] ?? [];
+        } else {
+            throw new \Exception('Le service Winipayer est momentanément indisponible');
+        }
+
     }
+
 
     /**
      * Fonction pour verifier si un UUID est valide
