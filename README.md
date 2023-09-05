@@ -2,7 +2,7 @@ PHP package to create and verify payments with WiniPayer.
 
 ## Support us
 
-Lien de la documentation : https://winipayer.com/developpeur/documentation
+Documentation link : https://winipayer.com/developpeur/documentation
 
 [<img src="https://checkout.winipayer.com/dist/img/logo-winipayer.png?t=1" width="419px" />](https://www.winipayer.com)
 
