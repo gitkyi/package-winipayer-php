@@ -10,12 +10,8 @@ Documentation link : https://winipayer.com/developpeur/documentation
 
 You can install the package via composer:
 
-"require": {
-"php": "^7.4|^8.0"
-}
-
 ```bash
-composer require jarstechnologies/winipayer
+composer require winipayer/winipayerphpsdk
 ```
 
 ## Usage
