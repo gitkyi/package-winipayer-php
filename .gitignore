@@ -1,1 +1,7 @@
 /vendor/
+/node_modules
+/vendor
+/.idea
+/.vscode
+/dev
+composer.lock

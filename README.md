@@ -66,7 +66,7 @@ composer require winipayer/winipayerphpsdk
     ->setCancelUrl('https://tester.winipayer.com/cancel')
     ->setReturnUrl('https://tester.winipayer.com/success')
     ->setCallbackUrl('https://tester.winipayer.com/callback')
-    ->createInvoice(1000, "Juste un test");
+    ->createInvoice(1000, "Just a test");
 
 ```
 
