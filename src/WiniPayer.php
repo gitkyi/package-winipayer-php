@@ -13,7 +13,7 @@ Author URI: https://www.jarstechnologies.com/
 namespace Package\Winipayer;
 
  */
-class Winipayer
+class WiniPayer
 {
 
     /**
