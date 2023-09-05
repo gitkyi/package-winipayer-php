@@ -437,7 +437,7 @@ class Client
             $errors = $response['errors'] ?? [];
             $key = $errors['key'] ?? 'undefined';
             $msg = $errors['msg'] ?? 'undefined';
-            throw new \Exception('Error Winipayer :' . $key . ' => ' . $msg);
+            throw new \Exception('Error Winipayer : ' . $key . ' => ' . $msg);
         } elseif (isset($response['success']) && $response['success'] == true) {
             return $response['results'] ?? [];
         } else {
