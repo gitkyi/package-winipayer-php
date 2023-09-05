@@ -1,17 +1,38 @@
 {
-    "name": "jarstechnologies/winipayer",
-    "description": "WiniPayer your online payment API, easy integration on mobile and web applications",
+    "name": "winipayer/winipayerphpsdk",
     "type": "library",
-    "autoload": {
-        "psr-4": {
-            "Jarstechnologies\\Winipayer\\": "src/"
-        }
-    },
+    "description": "PHP package to create and verify payments with WiniPayer",
+    "keywords": [
+        "winipayer",
+        "integration",
+        "mobile",
+        "monney"
+    ],
+    "homepage": "https://github.com/winipayer/winipayerphpsdk",
+    "license": "MIT",
     "authors": [
         {
-            "name": "Jarstechnologies",
-            "email": "info@jarstechnologies.com"
+            "name": "Jars Technologies",
+            "email": "info@winipayer.com",
+            "homepage": "https://winipayer.com",
+            "role": "owner"
         }
     ],
-    "require": {}
+    "require": {
+        "php": "^7.3|^8.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5.10",
+        "symfony/var-dumper": "5.4.x-dev"
+    },
+    "autoload": {
+        "psr-4": {
+            "WiniPayer\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    }
 }

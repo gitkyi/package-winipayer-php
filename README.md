@@ -2,7 +2,7 @@ This is where your description should go. Limit it to a paragraph or two. Consid
 
 ## Support us
 
-[<img src="https://www.winibuilder.com/file/project/wb100023/config/72150d38-a6ad-4ed8-9244-621b380f70a4.png?t=1" width="419px" />](https://www.winipayer.com)
+[<img src="https://checkout.winipayer.com/dist/img/logo-winipayer.png?t=1" width="419px" />](https://www.winipayer.com)
 
 ## Installation
 
