@@ -17,92 +17,92 @@ class WiniPayer
 {
 
     /**
-     * URL de l'API Winipayer
+     * Winipayer API URL
      * @var string
      */
     private string $_endpoint = 'https://api.winipayer.com';
 
     /**
-     * Version de l'API
+     * API version
      * @var string
      */
     private string $_version = 'v1';
 
     /**
-     * // Environnement (prod ou test)
+     * // Environment (prod or test)
      * @var string
      */
     private string $_env;
 
 
     /**
-     * Clé d'application
+     * Application key
      * @var string
      */
     private string $_apply_key;
 
     /**
-     *  Clé de token
+     *  Token key
      * @var string
      */
     private string $_token_key;
 
     /**
-     * Clé privée
+     * Private key
      * @var string
      */
     private string $_private_key;
 
     /**
-     * Devise par défaut
+     * Default currency
      * @var string
      */
     private string $_currency = 'xof';
 
     /**
-     *  Liste des canaux operateurs
+     *  List of operating channels
      * @var array
      */
     private array $_channel = [];
 
     /**
-     * Liste des articles
+     * List of articles
      * @var array
      */
     private array $_items = [];
 
     /**
-     * Propriétaire du client
+     * Customer Owner
      * @var string
      */
     private string $_customer_owner = '';
 
     /**
-     * Données personnalisées
+     * Personalized data
      * @var array
      */
     private array $_custom_data = [];
 
     /**
-     * URL d'annulation
+     * Cancel URL
      * @var string
      */
     private string $_cancel_url = '';
 
     /**
-     * URL de retour
+     * Return URL
      * @var string
      */
     private string $_return_url = '';
 
     /**
-     * Sécurité des transactions
+     * Transaction Security
      * @var string
      */
     private string $_wpsecure = 'false';
 
     /**
-     * URL de rappel
+     * Callback URL
      * @var string
      */
     private string $_callback_url = '';
