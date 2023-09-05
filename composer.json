@@ -1,5 +1,5 @@
 {
-    "name": "winipayer/winipayerphpsdk",
+    "name": "winipayer/phpsdk",
     "type": "library",
     "description": "PHP package to create and verify payments with WiniPayer",
     "keywords": [
