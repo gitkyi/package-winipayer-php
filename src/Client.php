@@ -5,15 +5,18 @@
  * @version 1.0.0
  */
 /*
-Plugin Name: WiniPayer
-Description: WiniPayer your online payment API, easy integration on mobile and web applications.
+Plugin Name: Client
+Description: Client your online payment API, easy integration on mobile and web applications.
 Author: Jars Technologies
 Version: 1.0.0
 Author URI: https://www.jarstechnologies.com/
-namespace winipayer/winipayerphpsdk;
+namespace winipayer;
 
  */
-class WiniPayer
+
+namespace winipayer;
+
+class Client
 {
 
     /**
@@ -127,9 +130,9 @@ class WiniPayer
      * Méthode pour Setter l'URL de l'API
      *
      * @param string $url
-     * @return WiniPayer
+     * @return Client
      */
-    public function setEndpoint(string $url): WiniPayer
+    public function setEndpoint(string $url): Client
     {
         if (!$this->_isLink($url)) {
             throw new \Exception('Winipayer : setEndpoint => Invalid endpoint URL.');
@@ -142,9 +145,9 @@ class WiniPayer
      * Méthode pour Setter l'URL d'annulation
      *
      * @param string $url
-     * @return WiniPayer
+     * @return Client
      */
-    public function setCancelUrl(string $url): WiniPayer
+    public function setCancelUrl(string $url): Client
     {
         if (!$this->_isLink($url)) {
             throw new \Exception('Winipayer : setCancelUrl => Invalid cancel URL.');
@@ -157,9 +160,9 @@ class WiniPayer
      * Méthode pour Setter l'URL de retour
      *
      * @param string $enpoint New enpoint url
-     * @return WiniPayer
+     * @return Client
      */
-    public function setReturnUrl(string $url): WiniPayer
+    public function setReturnUrl(string $url): Client
     {
         if (!$this->_isLink($url)) {
             throw new \Exception('Winipayer : setReturnUrl => Invalid return URL.');
@@ -172,9 +175,9 @@ class WiniPayer
      * Méthode pour Setter l'URL de rappel
      *
      * @param string $enpoint
-     * @return WiniPayer
+     * @return Client
      */
-    public function setCallbackUrl(string $url): WiniPayer
+    public function setCallbackUrl(string $url): Client
     {
         if (!$this->_isLink($url)) {
             throw new \Exception('Winipayer : setCallbackUrl => Invalid callback URL.');
@@ -187,9 +190,9 @@ class WiniPayer
      * Méthode pour Setter les opérateurs(canaux) de la transaction
      *
      * @param array $channel
-     * @return WiniPayer
+     * @return Client
      */
-    public function setChannel(array $channel): WiniPayer
+    public function setChannel(array $channel): Client
     {
         $this->_channel = $channel;
         return $this;
@@ -200,9 +203,9 @@ class WiniPayer
      * Méthode pour Setter la sécurité de la transaction
      * 
      * @param bool $wpsecure
-     * @return WiniPayer
+     * @return Client
      */
-    public function setWpsecure(bool $wpsecure): WiniPayer
+    public function setWpsecure(bool $wpsecure): Client
     {
         $this->_wpsecure = $wpsecure;
         return $this;
@@ -212,9 +215,9 @@ class WiniPayer
      * Méthode pour Setter le propriétaire de la transaction
      *
      * @param string $uuid
-     * @return WiniPayer
+     * @return Client
      */
-    public function setCustomerOwner(string $uuid): WiniPayer
+    public function setCustomerOwner(string $uuid): Client
     {
         if (!$this->_isUuid($uuid)) {
             throw new \Exception('Winipayer : setCustomerOwner => Invalid customer owner uuid.');
@@ -227,9 +230,9 @@ class WiniPayer
      * Méthode pour Setter des données personnalisées
      *
      * @param array $data
-     * @return WiniPayer
+     * @return Client
      */
-    public function setCustomData(array $data): WiniPayer
+    public function setCustomData(array $data): Client
     {
         $this->_custom_data = $data;
         return $this;
@@ -239,9 +242,9 @@ class WiniPayer
      * Méthode pour Setter les éléments que constitue la facture
      *
      * @param array $items
-     * @return WiniPayer
+     * @return Client
      */
-    public function setItems(array $items): WiniPayer
+    public function setItems(array $items): Client
     {
 
         foreach ($items as $key => $value) {
